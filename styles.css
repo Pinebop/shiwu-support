@@ -1,0 +1,173 @@
+/* 拾物支持站样式：无 JavaScript，浅色 / 深色跟随系统 prefers-color-scheme。
+   色板取自 App 的 AppTheme.swift（background / primaryText / secondaryText /
+   accentSoft / paper / line 的浅深两套值 + accent：浅色 #B0653A；深色取
+   accentText #E8B58C——页面用 accent 做文字 / 链接色，深底上直接用 accent 原值
+   对比度不过，取值理由与 AppTheme 的 accentText 一致），改主题时两边同步。 */
+
+:root {
+  --bg: #faf6ed;
+  --fg: #3b2f23;
+  --muted: #85715e;
+  --card: #ffffff;
+  --border: rgba(59, 47, 35, 0.14);
+  --accent: #b0653a;
+  --accent-soft: #f7e7d9;
+  --code-bg: #f4ead8;
+  --shadow: 0 1px 3px rgba(59, 47, 35, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1e1913;
+    --fg: #f0e7db;
+    --muted: #aa9683;
+    --card: #27211a;
+    --border: rgba(240, 231, 219, 0.16);
+    --accent: #e8b58c;
+    --accent-soft: rgba(176, 101, 58, 0.24);
+    --code-bg: #27211a;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: 880px; margin: 0 auto; padding: 40px 22px 48px; }
+.wrap.narrow { max-width: 760px; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.86em;
+  background: var(--code-bg);
+  border-radius: 6px;
+  padding: 2px 6px;
+  word-break: break-all;
+}
+
+/* Hero */
+
+.hero { display: flex; align-items: center; gap: 22px; margin-bottom: 30px; }
+.hero-left { align-items: center; }
+.hero-icon { border-radius: 22px; box-shadow: var(--shadow); flex: none; }
+
+h1 { margin: 0 0 4px; font-size: 2rem; letter-spacing: -0.02em; line-height: 1.25; }
+.tagline { margin: 0 0 10px; color: var(--muted); font-size: 1.02rem; }
+.chips { margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+
+.chip {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 999px;
+  padding: 3px 12px;
+}
+
+/* Sections */
+
+h2 { font-size: 1.32rem; letter-spacing: -0.01em; margin: 2.6rem 0 0.9rem; }
+h3 { font-size: 1.04rem; margin: 1.9rem 0 0.5rem; }
+.meta { color: var(--muted); font-size: 0.92rem; margin-top: 0; }
+
+.summary {
+  background: var(--accent-soft);
+  border-radius: 14px;
+  padding: 4px 20px 16px;
+  margin-top: 1.6rem;
+}
+
+.summary h2 { margin-top: 0.9rem; }
+
+/* Feature cards */
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+}
+
+.card h3 { margin: 0 0 6px; font-size: 1rem; }
+.card p { margin: 0; color: var(--muted); font-size: 0.92rem; line-height: 1.6; }
+
+/* FAQ accordions */
+
+details {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+}
+
+summary {
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding-right: 28px;
+}
+
+summary::-webkit-details-marker { display: none; }
+
+summary::after {
+  content: "+";
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+details[open] summary::after { content: "−"; }
+details p { margin: 10px 0 2px; color: var(--muted); }
+
+/* Lists, table & footer */
+
+section ul { padding-left: 1.3rem; }
+section li { margin: 6px 0; }
+
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.93rem; }
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--accent-soft); font-weight: 600; }
+
+footer {
+  margin-top: 3.2rem;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+footer p, footer nav { margin: 0; }

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>拾物 — 技术支持</title>
+<meta name="description" content="拾物：一个纯本地的 iPhone 物品整理 App——拍照收录、fzf 式查找、旧物志归档。数据只存在这台 iPhone 上。">
+<meta property="og:title" content="拾物 — 技术支持">
+<meta property="og:description" content="纯本地的物品整理 App：给每件物品一个位置、一个名字、一段记忆。">
+<meta property="og:image" content="assets/icon.png">
+<link rel="icon" type="image/png" href="assets/icon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="wrap">
+
+<header class="hero">
+  <img class="hero-icon" src="assets/icon.png" alt="拾物 App 图标" width="96" height="96">
+  <div>
+    <h1>拾物</h1>
+    <p class="tagline">给每件物品一个位置、一个名字、一段记忆。</p>
+    <p class="chips">
+      <!-- 发版前把下面的版本号更新为当期 App Store 版本（信息来源：app/ios/App/Info.plist） -->
+      <span class="chip">版本 0.1（发版前更新）</span>
+      <span class="chip">iOS 17 或更高</span>
+      <span class="chip">iPhone</span>
+    </p>
+  </div>
+</header>
+
+<section>
+  <h2>关于</h2>
+  <p>拾物是一个纯本地的物品整理 App：收集、整理、分类、查找、归档你拥有的东西。
+  新增一件物品的第一动作是拍照，照片是最自然的索引；位置记到「卧室 · 床头抽屉」
+  这样的两级；卖掉、送走的物品收进「旧物志」，可以留一句话给它。</p>
+  <p>拾物没有账号、没有服务器、不联网：所有数据只存在这台 iPhone 上，
+  随时可以导出 CSV 清单（保险 / 搬家）或 JSON 全量备份。</p>
+</section>
+
+<section>
+  <h2>功能</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>拍照即收录</h3>
+      <p>新增物品先拍照，也可以不用照片、只记名字和分类。</p>
+    </div>
+    <div class="card">
+      <h3>fzf 式查找</h3>
+      <p>输入即搜，支持拼音首字母（kh 找到口红），名称、分类、标签、位置、备注都在范围内。</p>
+    </div>
+    <div class="card">
+      <h3>位置两级</h3>
+      <p>「卧室 · 床头抽屉」，下次找不到东西时先问拾物。</p>
+    </div>
+    <div class="card">
+      <h3>旧物志</h3>
+      <p>归档不是删除：拍立得卡片墙留住所物与所忆，误归档可取回。</p>
+    </div>
+    <div class="card">
+      <h3>分类自定制</h3>
+      <p>15 个内置分类 + 二级子类，也能自建；在用的分类删了也不丢物品——自动解绑。</p>
+    </div>
+    <div class="card">
+      <h3>八种界面语言</h3>
+      <p>简体中文、英语、法语、俄语、西班牙语、阿拉伯语、韩语、日语。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>常见问题</h2>
+
+  <details>
+    <summary>我的数据存在哪里？</summary>
+    <p>全部在本机 App 沙盒的 <code>Application Support/things</code> 目录（物品 JSON +
+    照片文件）。没有服务器副本，删除 App 即一并删除——想留底请先用「设置 → 导出与备份」
+    生成 CSV 清单或 JSON 全量备份，保存在你自己选的位置。</p>
+  </details>
+
+  <details>
+    <summary>这个 App 会联网吗？都传了什么？</summary>
+    <p>不联网。拾物不发起任何网络请求：没有账号体系、没有统计或广告 SDK、
+    没有崩溃上报。详见<a href="privacy.html">隐私政策</a>。</p>
+  </details>
+
+  <details>
+    <summary>怎么备份 / 换手机迁移？</summary>
+    <p>「设置 → 导出与备份」可以生成 CSV 清单（保险、搬家场景）或 JSON 全量备份
+    （含全部物品、照片引用与分类体系）。换机迁移的导入功能在后续版本中。</p>
+  </details>
+
+  <details>
+    <summary>首次启动弹出「无线数据 / 网络」询问，这个 App 要联网吗？</summary>
+    <p>不要紧。拾物不发起任何网络请求，这个提示是国行 iPhone 系统对每个 App
+    首次启动的统一询问（运营商要求），与 App 本身是否联网无关。
+    选「不允许」也完全不影响使用——拾物的全部数据只存在本机。
+    详见<a href="privacy.html">隐私政策</a>。</p>
+  </details>
+
+  <details>
+    <summary>遇到崩溃 / 打不开怎么办？</summary>
+    <p>先试：① 退出 App 重新打开；② 重启手机；③ 若需删除重装，请先导出 JSON
+    备份（重装后本机数据无法找回）。仍解决不了请到下方 GitHub Issues 反馈，
+    并附上设备机型、系统版本、App 版本与复现步骤。</p>
+  </details>
+</section>
+
+<section>
+  <h2>联系我们</h2>
+  <p>遇到问题或有建议？请
+  <a href="https://github.com/pinebop/shiwu-support/issues/new">在 GitHub 提交 issue</a>
+  （公开可见，便于追踪与回复）；隐私相关的问题也可以发邮件到
+  <a href="mailto:kenshinlzh@163.com">kenshinlzh@163.com</a>。</p>
+  <p>为了更快定位问题，请一并说明：设备机型与系统版本、App 版本、复现步骤与期望结果。</p>
+</section>
+
+<footer>
+  <p>© 2026 拾物。保留所有权利。</p>
+  <nav><a href="index.html">技术支持</a> · <a href="privacy.html">隐私政策</a></nav>
+</footer>
+
+</main>
+</body>
+</html>
